@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/mainStepFragmentContainer"
+    android:configChanges="orientation|keyboardHidden|screenSize"
+    tools:ignore="InconsistentLayout,MergeRootFrame"
+    tools:context="com.maluta.bakingtime.StepDetailActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/stepToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ToolbarThemeWhite"
+        app:title="@string/placeholder_title"
+        app:titleTextColor="@android:color/white"
+        tools:targetApi="lollipop"/>
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/recipe_step_tablayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        app:tabGravity="fill"
+        app:tabMode="scrollable"
+        app:tabSelectedTextColor="@color/colorAccent"
+        android:layout_below="@+id/stepToolbar"/>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/recipe_step_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/recipe_step_tablayout"/>
+
+</RelativeLayout>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cl_item"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    android:layout_marginEnd="8dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="8dp"
+    app:cardCornerRadius="2dp"
+    android:elevation="4dp"
+    app:cardBackgroundColor="@color/card_bg"
+    app:cardElevation="4dp"
+    tools:targetApi="lollipop">
+
+    <android.support.constraint.ConstraintLayout
+        android:padding="@dimen/spacing_small"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/recipe_iv"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            app:srcCompat="@drawable/cake"
+            android:paddingBottom="@dimen/spacing_medium"
+            android:paddingTop="@dimen/spacing_medium"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/recipe_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:fontFamily="cursive"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="24dp"
+            app:layout_constraintLeft_toRightOf="@+id/recipe_iv"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            tools:text="BROWNIES" />
+
+        <TextView
+            android:id="@+id/step_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Steps: 20 "
+            android:textColor="@color/colorAccent"
+            android:gravity="center"
+            android:layout_marginStart="@dimen/spacing_medium"
+            android:layout_marginTop="14dp"
+            android:layout_marginLeft="@dimen/spacing_medium"
+            app:layout_constraintTop_toBottomOf="@+id/recipe_name_tv"
+            app:layout_constraintLeft_toLeftOf="@+id/recipe_name_tv" />
+
+        <TextView
+            android:id="@+id/servings_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:drawablePadding="4dp"
+            android:gravity="center"
+            app:layout_constraintLeft_toLeftOf="@+id/step_label"
+            app:layout_constraintTop_toBottomOf="@+id/step_label"
+            android:textColor="@color/colorAccent"
+            tools:text="Servings: 10" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.v7.widget.CardView>
+

@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/mainFragmentContainer"
+    android:background="@color/colorPrimaryLight"
     android:configChanges="orientation|keyboardHidden|screenSize"
     tools:ignore="InconsistentLayout,MergeRootFrame"
     tools:context="com.maluta.bakingtime.DetailActivity">

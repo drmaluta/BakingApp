@@ -66,8 +66,12 @@ public class StepsAdapter extends RecyclerView.Adapter<StepsAdapter.StepViewHold
             holder.mStepIv.setImageResource(R.drawable.no_video);
         }
 
-        String stepNumber = String.valueOf(currentStep.getId() + 1) + ":";
-        holder.mStepNumberTextView.setText(stepNumber);
+        if (position == 0){
+            holder.mStepNumberTextView.setVisibility(View.GONE);
+        } else {
+            String stepNumber = String.valueOf(currentStep.getId()) + ":";
+            holder.mStepNumberTextView.setText(stepNumber);
+        }
 
         String shortDescription = currentStep.getShortDescription();
         if (shortDescription.length() > 32) {

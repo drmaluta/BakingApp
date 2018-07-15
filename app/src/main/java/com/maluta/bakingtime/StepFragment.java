@@ -1,10 +1,12 @@
 package com.maluta.bakingtime;
 
+import android.app.Activity;
 import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.media.session.MediaSessionCompat;
 import android.support.v4.media.session.PlaybackStateCompat;
@@ -17,6 +19,7 @@ import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.exoplayer2.DefaultLoadControl;
 import com.google.android.exoplayer2.DefaultRenderersFactory;
@@ -67,8 +70,10 @@ public class StepFragment extends Fragment implements Player.EventListener{
     private PlaybackStateCompat.Builder mStateBuilder;
     private MediaSource mMediaSource;
 
-    private String video;
+    //private String video;
     private long mPlayerPosition;
+    private static String video = "";
+    private static boolean hasVideo;
 
     private static final String EXTRA_DESCRIPTION_ID = "EXTRA_DESCRIPTION_ID";
     private static final String EXTRA_VIDEO_URL_ID = "EXTRA_VIDEO_URL_ID";
@@ -116,20 +121,79 @@ public class StepFragment extends Fragment implements Player.EventListener{
         }
 
         video = getArguments().getString(EXTRA_VIDEO_URL_ID);
+
+        //Toast.makeText(getActivity(), String.valueOf(hasVideo), Toast.LENGTH_LONG).show();
         if (!video.isEmpty()) {
+            //hasVideo = true;
             // Init and show video view
             setViewVisibility(mSimpleExoPlayerView, true);
             initializeMediaSession();
             initializePlayer(Uri.parse(video));
+
+
         } else {
+            //hasVideo = false;
             // Hide video view
             setViewVisibility(mSimpleExoPlayerView, false);
             // Show image view
             setViewVisibility(mThumnbnailIV, true);
             mThumnbnailIV.setImageResource(R.drawable.recipe);
-
         }
 
+    }
+
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        if (isVisibleToUser) {
+            video = getArguments().getString(EXTRA_VIDEO_URL_ID);
+            if (!video.isEmpty()) {
+                hasVideo = true;
+                Activity activity = getActivity();
+                if(activity != null) {
+                    if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE && !DetailActivity.mTwoPane) {
+                        expandVideoView(mSimpleExoPlayerView);
+                        setViewVisibility(descriptionCard, false);
+                        hideSystemUI();
+                    }
+                }
+            } else {
+                hasVideo = false;
+                // Hide video view
+                setViewVisibility(mSimpleExoPlayerView, false);
+                setViewVisibility(descriptionCard, true);
+                String description = getArguments().getString(EXTRA_DESCRIPTION_ID);
+                mDescriptionTextView.setText(description);
+
+                Activity activity = getActivity();
+                if(activity != null) {
+                    if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE && !DetailActivity.mTwoPane) {
+
+
+                        String imageUrl = getArguments().getString(EXTRA_IMAGE_URL_ID);
+                        if (!imageUrl.isEmpty()) {
+                            Picasso.with(getActivity().getApplicationContext()).load(imageUrl)
+                                    .placeholder(R.drawable.recipe)
+                                    .error(R.drawable.recipe)
+                                    .into(mThumnbnailIV);
+                        } else {
+                            setViewVisibility(mThumnbnailIV, true);
+                            mThumnbnailIV.setImageResource(R.drawable.recipe);
+                        }
+
+
+                        // Hide video view
+                        //setViewVisibility(mSimpleExoPlayerView, false);
+
+
+                        ((AppCompatActivity) getActivity()).getSupportActionBar().show();
+                        getActivity().findViewById(R.id.recipe_step_tablayout).setVisibility(View.VISIBLE);
+                        getActivity().getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_VISIBLE);
+                    }
+                }
+            }
+            //Toast.makeText(getActivity(), String.valueOf(hasVideo), Toast.LENGTH_LONG).show();
+        }
     }
 
     @Override
@@ -152,8 +216,8 @@ public class StepFragment extends Fragment implements Player.EventListener{
     }
 
     private void shrinkVideoView(SimpleExoPlayerView exoPlayer){
-        exoPlayer.getLayoutParams().height = 0;
-        exoPlayer.getLayoutParams().width = LayoutParams.WRAP_CONTENT;
+        exoPlayer.getLayoutParams().height = LayoutParams.WRAP_CONTENT;
+        exoPlayer.getLayoutParams().width = LayoutParams.MATCH_PARENT;
     }
 
     private void hideSystemUI() {
@@ -305,7 +369,7 @@ public class StepFragment extends Fragment implements Player.EventListener{
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         // checking the orientation of screen
-        if (!video.isEmpty()) {
+        if (hasVideo) {
             if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE && !DetailActivity.mTwoPane) {
                 Log.d("ORIENTATION", " LANDSCAPE");
                 // sets the boolean tracker used to adjust layout on orientation
@@ -321,6 +385,7 @@ public class StepFragment extends Fragment implements Player.EventListener{
                 setViewVisibility(descriptionCard, true);
                 ((AppCompatActivity) getActivity()).getSupportActionBar().show();
                 getActivity().findViewById(R.id.recipe_step_tablayout).setVisibility(View.VISIBLE);
+                getActivity().getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_VISIBLE);
             }
         }
     }

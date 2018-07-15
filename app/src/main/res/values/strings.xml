@@ -9,6 +9,7 @@
     <string name="step_number_header">Step</string>
     <string name="step_label">Steps: </string>
     <string name="step_page_label">Step: %1$d</string>
+    <string name="first_step_page_label">Intro</string>
     <string name="servings_label">Servings: </string>
 
     <!--Button name-->

@@ -21,11 +21,13 @@ public class StepPageAdapter extends FragmentStatePagerAdapter {
 
     private ArrayList<Step> steps;
     private final String tabTitle;
+    private Context mContext;
 
     public StepPageAdapter(FragmentManager fm, ArrayList<Step> steps, Context context) {
         super(fm);
         setSteps(steps);
         tabTitle = context.getResources().getString(R.string.step_page_label);
+        mContext = context;
     }
 
     public void setSteps(@NonNull ArrayList<Step> steps) {
@@ -49,6 +51,9 @@ public class StepPageAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public CharSequence getPageTitle(int position) {
-        return String.format(Locale.US, tabTitle, (position + 1));
+        if (position == 0) {
+            return mContext.getResources().getString(R.string.first_step_page_label);
+        }
+        return String.format(Locale.US, tabTitle, position);
     }
 }

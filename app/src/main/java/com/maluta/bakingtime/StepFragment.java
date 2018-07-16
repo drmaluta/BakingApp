@@ -159,14 +159,14 @@ public class StepFragment extends Fragment implements Player.EventListener{
                 }
             } else {
                 hasVideo = false;
-                // Hide video view
-                setViewVisibility(mSimpleExoPlayerView, false);
-                setViewVisibility(descriptionCard, true);
-                String description = getArguments().getString(EXTRA_DESCRIPTION_ID);
-                mDescriptionTextView.setText(description);
 
                 Activity activity = getActivity();
                 if(activity != null) {
+                    // Hide video view
+                    setViewVisibility(mSimpleExoPlayerView, false);
+                    setViewVisibility(descriptionCard, true);
+                    String description = getArguments().getString(EXTRA_DESCRIPTION_ID);
+                    mDescriptionTextView.setText(description);
                     if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE && !DetailActivity.mTwoPane) {
 
 

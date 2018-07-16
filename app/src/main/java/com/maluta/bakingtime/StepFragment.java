@@ -181,18 +181,12 @@ public class StepFragment extends Fragment implements Player.EventListener{
                             mThumnbnailIV.setImageResource(R.drawable.recipe);
                         }
 
-
-                        // Hide video view
-                        //setViewVisibility(mSimpleExoPlayerView, false);
-
-
                         ((AppCompatActivity) getActivity()).getSupportActionBar().show();
                         getActivity().findViewById(R.id.recipe_step_tablayout).setVisibility(View.VISIBLE);
                         getActivity().getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_VISIBLE);
                     }
                 }
             }
-            //Toast.makeText(getActivity(), String.valueOf(hasVideo), Toast.LENGTH_LONG).show();
         }
     }
 

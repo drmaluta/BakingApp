@@ -7,6 +7,7 @@ import android.support.v7.widget.Toolbar;
 
 import com.maluta.bakingtime.adapteers.RecipeAdapter;
 import com.maluta.bakingtime.model.Recipe;
+import com.maluta.bakingtime.widget.WidgetUpdateService;
 
 import java.util.ArrayList;
 
@@ -38,10 +39,11 @@ public class MainActivity extends AppCompatActivity implements RecipeFragment.Re
 
     @Override
     public void onRecipeClicked(Recipe recipe) {
-        Bundle bundle = new Bundle();
-        bundle.putParcelable(RECIPE, recipe);
         Intent intent = new Intent(this, DetailActivity.class);
-        intent.putExtras(bundle);
+        intent.putExtra(RECIPE, recipe);
+
+        //WidgetUpdateService.startActionUpdateListView(this, recipe);
+
         startActivity(intent);
     }
 }

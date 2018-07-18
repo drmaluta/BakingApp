@@ -8,10 +8,13 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 
 import com.maluta.bakingtime.model.Recipe;
 import com.maluta.bakingtime.model.Step;
+import com.maluta.bakingtime.utils.JsonUtils;
+import com.maluta.bakingtime.widget.WidgetUpdateService;
 
 import java.util.ArrayList;
 
@@ -45,10 +48,21 @@ public class DetailActivity extends AppCompatActivity implements RecipeDetailFra
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         Intent intent = getIntent();
-        Bundle bundle = intent.getExtras();
-        mRecipe = bundle.getParcelable(RECIPE);
+        if (intent.getParcelableExtra(RECIPE) != null) {
+            mRecipe = intent.getParcelableExtra(RECIPE);
+        } else {
+            mRecipe = JsonUtils.recipeFromJson(this);
+        }
+
         mTwoPane = false;
         getSupportActionBar().setTitle(mRecipe.getName());
+
+        mFavorite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                WidgetUpdateService.startActionUpdateListView(getApplicationContext(), mRecipe);
+            }
+        });
 
         mTwoPane = findViewById(R.id.step_info_fragment_container) != null;
 

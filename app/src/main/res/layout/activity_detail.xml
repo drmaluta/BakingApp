@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/colorPrimary"
-        android:elevation="4dp"
+        android:elevation="@dimen/spacing_small"
         android:theme="@style/ToolbarThemeWhite"
         app:title="@string/placeholder_title"
         app:titleTextColor="@android:color/white"
@@ -23,12 +23,12 @@
 
         <ImageView
             android:id="@+id/heart_imageView"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="@dimen/toolbar_image_size"
+            android:layout_height="@dimen/toolbar_image_size"
             android:layout_gravity="end"
-            android:layout_marginRight="16dp"
+            android:layout_marginRight="@dimen/spacing_large"
             android:src="@drawable/ic_favorite_border_black_24dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="@dimen/spacing_large"
             android:tint="@color/white"
             tools:ignore="ContentDescription,InconsistentLayout"/>
 

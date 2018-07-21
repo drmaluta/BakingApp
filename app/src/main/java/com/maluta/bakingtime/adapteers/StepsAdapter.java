@@ -10,7 +10,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.maluta.bakingtime.R;
-import com.maluta.bakingtime.model.Recipe;
 import com.maluta.bakingtime.model.Step;
 import com.squareup.picasso.Picasso;
 

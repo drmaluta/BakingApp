@@ -1,16 +1,13 @@
 package com.maluta.bakingtime;
 
 import android.content.Intent;
-import android.content.res.Configuration;
+import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
 
 import com.maluta.bakingtime.adapteers.StepPageAdapter;
 import com.maluta.bakingtime.model.Step;
@@ -29,7 +26,6 @@ public class StepDetailActivity extends AppCompatActivity {
     @BindView(R.id.recipe_step_tablayout)
     TabLayout recipeStepTabLayout;
 
-    private boolean isLandscape;
     private StepPageAdapter viewPagerAdapter;
     int stepId;
 

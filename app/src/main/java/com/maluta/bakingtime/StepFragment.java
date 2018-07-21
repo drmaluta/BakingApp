@@ -6,7 +6,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.media.session.MediaSessionCompat;
 import android.support.v4.media.session.PlaybackStateCompat;
@@ -19,7 +18,6 @@ import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.exoplayer2.DefaultLoadControl;
 import com.google.android.exoplayer2.DefaultRenderersFactory;
@@ -122,7 +120,6 @@ public class StepFragment extends Fragment implements Player.EventListener{
 
         video = getArguments().getString(EXTRA_VIDEO_URL_ID);
 
-        //Toast.makeText(getActivity(), String.valueOf(hasVideo), Toast.LENGTH_LONG).show();
         if (!video.isEmpty()) {
             //hasVideo = true;
             // Init and show video view
@@ -367,14 +364,12 @@ public class StepFragment extends Fragment implements Player.EventListener{
             if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE && !DetailActivity.mTwoPane) {
                 Log.d("ORIENTATION", " LANDSCAPE");
                 // sets the boolean tracker used to adjust layout on orientation
-                //isLandscape = true;
                 expandVideoView(mSimpleExoPlayerView);
                 setViewVisibility(descriptionCard, false);
                 hideSystemUI();
             } else if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT && !DetailActivity.mTwoPane) {
                 Log.d("ORIENTATION", " PORTRAIT");
                 // sets the boolean tracker used to adjust layout on orientation
-                //isLandscape = false;
                 shrinkVideoView(mSimpleExoPlayerView);
                 setViewVisibility(descriptionCard, true);
                 ((AppCompatActivity) getActivity()).getSupportActionBar().show();

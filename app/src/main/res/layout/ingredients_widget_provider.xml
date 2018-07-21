@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="@dimen/widget_padding"
@@ -12,13 +11,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_margin="8dp"
+        android:layout_margin="@dimen/spacing_medium"
         android:background="@color/colorPrimary"
         android:contentDescription="@string/appwidget_text"
         android:text="@string/appwidget_text"
         android:textColor="@color/white"
         android:textAlignment="center"
-        android:textSize="24sp"
+        android:textSize="@dimen/text_size_widget_title"
         android:textStyle="bold" />
 
 
@@ -40,7 +39,7 @@
             android:textAlignment="center"
             android:text="@string/appwidget_unavailable"
             android:textColor="#ffffff"
-            android:textSize="20sp"
+            android:textSize="@dimen/text_size_widget_body"
             android:textStyle="bold" />
 
     </RelativeLayout>

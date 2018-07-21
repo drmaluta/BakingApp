@@ -14,7 +14,7 @@
         android:id="@+id/mainToolBar"
         android:background="@color/colorPrimary"
         app:title="@string/app_name"
-        android:elevation="4dp"
+        android:elevation="@dimen/spacing_small"
         app:titleTextColor="@android:color/white"
         tools:targetApi="lollipop"/>
 

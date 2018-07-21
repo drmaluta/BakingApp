@@ -5,13 +5,12 @@ import android.content.Intent;
 import android.widget.RemoteViews;
 import android.widget.RemoteViewsService;
 
+import com.maluta.bakingtime.R;
 import com.maluta.bakingtime.model.Ingredient;
 import com.maluta.bakingtime.model.Recipe;
 import com.maluta.bakingtime.utils.JsonUtils;
 
-import java.util.ArrayList;
 import java.util.List;
-import com.maluta.bakingtime.R;
 
 /**
  * Created by admin on 7/17/2018.

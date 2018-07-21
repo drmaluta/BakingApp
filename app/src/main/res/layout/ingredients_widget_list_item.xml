@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="12dp">
+        android:padding="@dimen/padding_large">
 
         <TextView
             android:id="@+id/widget_list_view_text_ingredient"
@@ -28,14 +28,13 @@
             android:textColor="@color/colorPrimaryDark"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
             tools:text="2.0"/>
 
         <TextView
             android:id="@+id/widget_list_view_text_measure"
             style="@style/TextAppearance.AppCompat.Body1"
             android:textColor="@color/colorPrimaryDark"
-            android:layout_marginStart="5dp"
+            android:layout_marginStart="@dimen/padding_small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:text="CUP" />

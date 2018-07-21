@@ -6,7 +6,6 @@
     <!--Error Messages-->
     <string name="connection_error_title">Connection Error</string>
     <string name="connection_error">Recipes Data can not be loaded. Check for your connection.</string>
-    <string name="step_number_header">Step</string>
     <string name="step_label">Steps: </string>
     <string name="step_page_label">Step: %1$d</string>
     <string name="first_step_page_label">Intro</string>
@@ -16,8 +15,6 @@
     <string name="reload_button">Reload</string>
 
     <string name="step_description">This is a step description for the current step. Mix the ingredients and mix it all together. Then crack the eggs and mix it in along with the oil and batter and everything else. blah blah blah</string>
-    <string name="empty_step_info_message">Click on a recipe step to display info</string>
     <string name="appwidget_text">Recipe Name</string>
-    <string name="add_widget">Add widget</string>
     <string name="appwidget_unavailable">Ingredients are unavailable</string>
 </resources>

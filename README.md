@@ -1,7 +1,7 @@
 # BakingApp
 
 # Used Libraries
-* [Retrofit 2](https://github.com/square/retrofit) with [RxJava adapter](https://github.com/square/retrofit/tree/master/retrofit-adapters/rxjava2) and [Gson converter](https://github.com/square/retrofit/tree/master/retrofit-converters/gson)
+* [Retrofit 2](https://github.com/square/retrofit) with [Gson converter](https://github.com/square/retrofit/tree/master/retrofit-converters/gson)
 * [ButterKnife](https://github.com/JakeWharton/butterknife)
 * [Gson](https://github.com/google/gson)
 * [Picasso](https://square.github.io/picasso/)

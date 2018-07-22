@@ -68,7 +68,7 @@ public class StepsAdapter extends RecyclerView.Adapter<StepsAdapter.StepViewHold
         if (position == 0){
             holder.mStepNumberTextView.setVisibility(View.GONE);
         } else {
-            String stepNumber = String.valueOf(currentStep.getId()) + ":";
+            String stepNumber = String.valueOf(position) + ":";
             holder.mStepNumberTextView.setText(stepNumber);
         }
 
